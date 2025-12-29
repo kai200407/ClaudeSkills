@@ -409,4 +409,72 @@ Built as a Claude Code Skill adaptation of my [NotebookLM MCP Server](https://gi
 
 For source-grounded, document-based research directly in Claude Code
 
+---
+
+## 中文说明 / Chinese Guide
+
+[English](#notebooklm-claude-code-skill) | [中文](#中文说明-chinese-guide)
+
+### 简介 / Introduction
+
+这是一个 Claude Code 技能，让你直接从 Claude Code 查询 Google NotebookLM 笔记，获得基于来源、带引用的答案。
+
+### 功能特性 / Features
+
+- **基于来源的回答** - 仅从你的上传文档中回答，大幅减少幻觉
+- **直接集成** - 无需在浏览器和编辑器之间复制粘贴
+- **智能库管理** - 保存 NotebookLM 链接并自动选择相关笔记
+- **自动认证** - 一次 Google 登录，会话持续有效
+
+### 快速开始 / Quick Start
+
+**1. 安装 / Installation**
+```bash
+mkdir -p ~/.claude/skills
+cd ~/.claude/skills
+git clone https://github.com/PleasePrompto/notebooklm-skill notebooklm
+```
+
+**2. 认证 / Authenticate**
+```
+在 Claude Code 中说："设置 NotebookLM 认证"
+```
+
+**3. 添加笔记 / Add Notebook**
+```
+"将这个链接添加到我的 NotebookLM 库：[你的链接]"
+```
+
+**4. 开始查询 / Start Querying**
+```
+"我的 API 文档怎么说认证？"
+```
+
+### 使用方法 / How to Use
+
+| 你的指令 / Command | 功能 / Action |
+|-------------------|---------------|
+| "设置 NotebookLM 认证" | 打开 Chrome 进行 Google 登录 |
+| "将链接添加到库" | 保存笔记到本地库 |
+| "显示我的笔记" | 列出所有保存的笔记 |
+| "用我的 API 文档查询..." | 查询相关笔记 |
+| "清除 NotebookLM 数据" | 重新开始 |
+
+### 技术细节 / Technical Details
+
+- **Python 实现** - 使用 Patchright 进行浏览器自动化
+- **隔离环境** - 自动在技能文件夹内创建 `.venv`
+- **本地存储** - 所有数据保存在技能目录的 `data/` 文件夹
+
+### 常见问题 / FAQ
+
+**Q: 为什么不在网页版 Claude 中工作？**
+A: 网页版在沙箱中运行技能，没有网络访问权限。
+
+**Q: 与 MCP 服务器有什么区别？**
+A: 这是更简单的 Python 实现，直接作为 Claude Skill 运行。MCP 服务器功能更丰富，支持持久会话。
+
+**Q: 我的 Google 账户安全吗？**
+A: Chrome 在本地运行，凭据不会离开你的电脑。
+
 </div>
