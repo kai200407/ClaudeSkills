@@ -1,0 +1,22 @@
+# Ignore large files and archives
+*.tar.gz
+*.zip
+*.tar
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Ignore logs
+*.log
+
+# Ignore temporary files
+tmp/
+temp/
